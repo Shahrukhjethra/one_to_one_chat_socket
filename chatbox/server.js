@@ -12,9 +12,6 @@ app.get('/', function(req, res) {
 });
 
 io.on('connection', function(socket) {
-
-    //   console.log('a user connected');
-
     socket.on('user name', function(user, callback) {
         var temp = 0;
         onlineUsers.push({
@@ -27,7 +24,7 @@ io.on('connection', function(socket) {
             counter: temp
         })
 
-        // console.log(userName);
+        // 
         console.log(onlineUsers);
 
         io.sockets.emit('connectedUsers', onlineUsers);
@@ -50,12 +47,9 @@ io.on('connection', function(socket) {
     });
 
     socket.on('chatting', function(message, sender, receiver) {
-
         socket.to(receiver).emit('reciverPeer', message, socket.id, receiver);
         socket.emit('senderPeer', message, socket.id, receiver);
-
     })
-
 });
 
 http.listen(3000, function() {

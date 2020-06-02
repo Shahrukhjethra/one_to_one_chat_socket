@@ -4,12 +4,14 @@
   "description": "chatbox application",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "sushil kumar singh",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "socket.io": "~1.7.2",
-    "express": "~4.10.2"
+    "express": "~4.10.2",
+    "nodemon": "^2.0.4",
+    "socket.io": "~1.7.2"
   }
 }
